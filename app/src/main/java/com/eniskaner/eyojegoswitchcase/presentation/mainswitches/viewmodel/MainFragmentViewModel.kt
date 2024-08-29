@@ -25,6 +25,24 @@ class MainFragmentViewModel @Inject constructor(
         getSwitchList()
     }
 
+    fun updateList(item: SwitchPreferencesUIModel) {
+        when(item.switchType) {
+            SwitchType.EGO -> {
+                if (item.isChecked) {
+                    enableEgoSwitch(item)
+                    disableOtherSwitch(item)
+
+                } else {
+                    enableOtherSwitches()
+
+                }
+            }
+            SwitchType.OTHERS -> {
+
+            }
+        }
+    }
+
     private fun enableEgoSwitch(item: SwitchPreferencesUIModel) {
         val updatedList = _switchListUiState.value.switchListModel.map {
             it.copy(
