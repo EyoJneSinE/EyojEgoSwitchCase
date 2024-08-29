@@ -31,14 +31,20 @@ class MainFragmentViewModel @Inject constructor(
                 if (item.isChecked) {
                     enableEgoSwitch(item)
                     disableOtherSwitch(item)
-
+                    _switchListUiState.update {
+                        it.copy(bottomNavItems = emptyList())
+                    }
                 } else {
                     enableOtherSwitches()
-
+                    updateBottomNavItems()
                 }
             }
             SwitchType.OTHERS -> {
-
+                if (item.isChecked) {
+                    addSwitchToBottomNav(item)
+                } else {
+                    removeSwitchFromBottomNav(item)
+                }
             }
         }
     }
@@ -76,6 +82,36 @@ class MainFragmentViewModel @Inject constructor(
         }
         _switchListUiState.update {
             it.copy(switchListModel = updatedList)
+        }
+    }
+
+    private fun updateBottomNavItems() {
+        val currentItems = _switchListUiState.value.bottomNavItems
+        val updatedList = _switchListUiState.value.copy(bottomNavItems = listOf("main") + currentItems)
+        _switchListUiState.update {
+            it.copy(bottomNavItems = updatedList.bottomNavItems)
+        }
+    }
+
+    private fun addSwitchToBottomNav(item: SwitchPreferencesUIModel) {
+        val currentItems = _switchListUiState.value.bottomNavItems
+        if (currentItems.size < 5) {
+            val updatedList = _switchListUiState.value.copy(bottomNavItems = currentItems + item.switchName)
+            _switchListUiState.update {
+                it.copy(bottomNavItems = updatedList.bottomNavItems)
+            }
+        } else {
+            _switchListUiState.update {
+                it.copy(bottomNavItems = currentItems)
+            }
+        }
+    }
+
+    private fun removeSwitchFromBottomNav(item: SwitchPreferencesUIModel) {
+        val currentItems = _switchListUiState.value.bottomNavItems
+        val updatedList = _switchListUiState.value.copy(bottomNavItems = currentItems - item.switchName)
+        _switchListUiState.update {
+            it.copy(bottomNavItems = updatedList.bottomNavItems)
         }
     }
 
