@@ -2,17 +2,23 @@ package com.eniskaner.eyojegoswitchcase.presentation.mainswitches.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.eniskaner.eyojegoswitchcase.R
 import com.eniskaner.eyojegoswitchcase.databinding.FragmentMainBinding
+import com.eniskaner.eyojegoswitchcase.presentation.MainActivity
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.adapter.MainUiAdapter
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.adapter.SwitchClickListener
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.model.SwitchPreferencesUIModel
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.util.launchAndRepeatWithViewLifecycle
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.viewmodel.MainFragmentViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,6 +29,7 @@ class MainFragment : Fragment(), SwitchClickListener {
     private val binding get() = _binding
     private val mainFragmentViewModel: MainFragmentViewModel by viewModels()
     private val mainUiAdapter: MainUiAdapter by lazy { MainUiAdapter(this@MainFragment) }
+    private val navController: NavController by lazy { findNavController() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,6 +50,8 @@ class MainFragment : Fragment(), SwitchClickListener {
     ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         binding?.recyclerViewSwitchList?.layoutManager = LinearLayoutManager(requireContext())
+        val bottomNavigationView = (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        observeBottomNavItems(bottomNavigationView)
         return binding?.root
     }
 
@@ -55,6 +64,39 @@ class MainFragment : Fragment(), SwitchClickListener {
                     }
                 }
             }
+        }
+    }
+
+    private fun observeBottomNavItems(bottomNavigationView: BottomNavigationView?) {
+        launchAndRepeatWithViewLifecycle {
+            launch {
+                mainFragmentViewModel.switchListUiState.collect {mainFragmentUiState ->
+                    updateBottomNavigationView(mainFragmentUiState.bottomNavItems, bottomNavigationView)
+                }
+            }
+        }
+    }
+
+    private fun updateBottomNavigationView(items: List<String>, bottomNavigationView: BottomNavigationView?) {
+        bottomNavigationView?.menu?.clear()
+        items.forEachIndexed { index, item ->
+            val itemId = when (item) {
+                "main" -> R.id.mainFragment
+                "a" -> R.id.switch1Fragment
+                "b" -> R.id.switch2Fragment
+                "c" -> R.id.switch3Fragment
+                "d" -> R.id.switch4Fragment
+                "e" -> R.id.switch5Fragment
+                else -> View.generateViewId()
+            }
+            bottomNavigationView?.menu?.add(Menu.NONE, itemId, index, item)?.setIcon(R.drawable.ic_sentiment_satisfied_36dp)
+        }
+        bottomNavigationView?.visibility = if (items.isEmpty()) View.INVISIBLE else View.VISIBLE
+        bottomNavigationView?.setOnItemSelectedListener { menuItem ->
+            if (menuItem.itemId != navController.currentDestination?.id) {
+                navController.navigate(menuItem.itemId)
+            }
+            true
         }
     }
 
