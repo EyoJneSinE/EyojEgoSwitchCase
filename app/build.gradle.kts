@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.kapt)
+    //alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
 }
@@ -39,6 +41,17 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packaging {
+        resources {
+            excludes += "META-INF/gradle/incremental.annotation.processors"
+        }
+    }
+    kotlin {
+        sourceSets.main {
+            kotlin.srcDir("build/generated/ksp/main/kotlin")
+        }
+    }
+
 }
 
 dependencies {
@@ -54,9 +67,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.dagger.hilt)
-    ksp(libs.dagger.hilt.compiler)
-    ksp(libs.dagger.compiler)
+    // hilt
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    annotationProcessor (libs.hilt.android.compiler)
+    implementation (libs.hilt.android.compose)
+    /*implementation(libs.dagger.hilt)
+    implementation(libs.dagger.compiler)
+    implementation(libs.dagger.hilt.compiler)*/
+    //ksp(libs.dagger.hilt.compiler)
+    //ksp(project(":test-processor"))
+    //ksp(libs.dagger.compiler)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material.material3)
     implementation(libs.compose.ui.tooling)
