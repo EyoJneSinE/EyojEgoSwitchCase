@@ -10,4 +10,29 @@
         android:name="com.eniskaner.eyojegoswitchcase.presentation.mainswitches.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/switch1Fragment"
+        android:name="com.eniskaner.eyojegoswitchcase.presentation.switch1.Switch1Fragment"
+        android:label="fragment_switch1"
+        tools:layout="@layout/fragment_switch1" />
+    <fragment
+        android:id="@+id/switch2Fragment"
+        android:name="com.eniskaner.eyojegoswitchcase.presentation.switch2.Switch2Fragment"
+        android:label="fragment_switch2"
+        tools:layout="@layout/fragment_switch2" />
+    <fragment
+        android:id="@+id/switch3Fragment"
+        android:name="com.eniskaner.eyojegoswitchcase.presentation.switch3.Switch3Fragment"
+        android:label="fragment_switch3"
+        tools:layout="@layout/fragment_switch3" />
+    <fragment
+        android:id="@+id/switch4Fragment"
+        android:name="com.eniskaner.eyojegoswitchcase.presentation.switch4.Switch4Fragment"
+        android:label="fragment_switch4"
+        tools:layout="@layout/fragment_switch4" />
+    <fragment
+        android:id="@+id/switch5Fragment"
+        android:name="com.eniskaner.eyojegoswitchcase.presentation.switch5.Switch5Fragment"
+        android:label="fragment_switch5"
+        tools:layout="@layout/fragment_switch5" />
 </navigation>
