@@ -9,18 +9,20 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eniskaner.eyojegoswitchcase.databinding.FragmentMainBinding
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.adapter.MainUiAdapter
+import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.adapter.SwitchClickListener
+import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.model.SwitchPreferencesUIModel
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.util.launchAndRepeatWithViewLifecycle
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.viewmodel.MainFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), SwitchClickListener {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding
     private val mainFragmentViewModel: MainFragmentViewModel by viewModels()
-    private val mainUiAdapter: MainUiAdapter by lazy { MainUiAdapter() }
+    private val mainUiAdapter: MainUiAdapter by lazy { MainUiAdapter(this@MainFragment) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,5 +61,9 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun switchClickListener(item: SwitchPreferencesUIModel) {
+        mainFragmentViewModel.updateList(item)
     }
 }

@@ -7,10 +7,12 @@ import com.eniskaner.eyojegoswitchcase.databinding.ItemSwitchBinding
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.model.SwitchPreferencesUIModel
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.viewholder.MainUiViewHolder
 
-class MainUiAdapter(): ListAdapter<SwitchPreferencesUIModel, MainUiViewHolder>(MainSwitchesDiffCallBack()) {
+class MainUiAdapter(
+    private val switchClickListener: SwitchClickListener
+): ListAdapter<SwitchPreferencesUIModel, MainUiViewHolder>(MainSwitchesDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainUiViewHolder {
         val binding = ItemSwitchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return  MainUiViewHolder(binding)
+        return  MainUiViewHolder(binding, switchClickListener)
     }
 
     override fun onBindViewHolder(holder: MainUiViewHolder, position: Int) {
