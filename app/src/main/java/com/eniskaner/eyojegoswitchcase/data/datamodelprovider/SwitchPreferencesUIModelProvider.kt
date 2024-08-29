@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class SwitchPreferencesUIModelProvider @Inject constructor() {
 
-    private fun addSwitches(): List<SwitchPreferencesUIModel> {
+    fun addSwitches(): List<SwitchPreferencesUIModel> {
         val switchList = listOf(SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
