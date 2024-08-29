@@ -38,6 +38,18 @@ class MainFragmentViewModel @Inject constructor(
         }
     }
 
+    private fun disableOtherSwitch(item: SwitchPreferencesUIModel) {
+        val updateList = _switchListUiState.value.switchListModel.map {
+            if (it.switchType == SwitchType.OTHERS) {
+                it.copy(isEnabled = item.isEnabled)
+            } else it
+            it.copy(isEnabled = it.switchType == SwitchType.EGO)
+        }
+        _switchListUiState.update {
+            it.copy(switchListModel = updateList)
+        }
+    }
+
     private fun getSwitchList() {
         val switchList = switchPreferencesUIModelProvider.addSwitches()
         _switchListUiState.update {
