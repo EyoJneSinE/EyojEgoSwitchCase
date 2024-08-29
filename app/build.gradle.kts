@@ -84,4 +84,19 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.viewmodelKtx)
+    //implementation "com.google.code.gson:gson:2.10.1"
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    //OkHttp
+    implementation(libs.okHttp)
+    //Gson
+    implementation(libs.gson)
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    kapt ("com.github.bumptech.glide:compiler:4.15.1")
+
 }
