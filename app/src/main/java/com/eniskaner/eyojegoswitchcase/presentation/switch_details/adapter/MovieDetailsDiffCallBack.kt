@@ -1,6 +1,7 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.adapter
 
 import androidx.recyclerview.widget.DiffUtil
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails
 
 class MovieDetailsDiffCallBack: DiffUtil.ItemCallback<MovieDetails>() {
     override fun areItemsTheSame(oldItem: MovieDetails, newItem: MovieDetails): Boolean {

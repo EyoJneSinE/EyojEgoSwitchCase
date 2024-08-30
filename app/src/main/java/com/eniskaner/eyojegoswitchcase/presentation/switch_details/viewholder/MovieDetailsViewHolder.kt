@@ -1,12 +1,11 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.eniskaner.eyojegoswitchcase.data.remote.util.Constants.BACKDROP_URL
 import com.eniskaner.eyojegoswitchcase.data.remote.util.Constants.POSTER_URL
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsRecyclerRowBinding
-import com.eniskaner.eyojegoswitchcase.presentation.util.load
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails
 import com.eniskaner.eyojegoswitchcase.presentation.util.loadCenterCrop
-import com.eniskaner.eyojegoswitchcase.presentation.util.loadCircleCrop
 
 class MovieDetailsViewHolder(private val movieDetailsBinding: MovieDetailsRecyclerRowBinding
 ) :RecyclerView.ViewHolder(movieDetailsBinding.root) {

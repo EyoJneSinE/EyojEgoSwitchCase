@@ -1,10 +1,10 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.model
 
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST_LIST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW_LIST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_DETAILS
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST_LIST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW_LIST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_DETAILS
 
 
 sealed class MovieDetails : MovieDetailsDisplayItem {

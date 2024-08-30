@@ -1,10 +1,11 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eniskaner.eyojegoswitchcase.domain.movies_usecase.GetMovieDetailCrewListUseCase
 import com.eniskaner.eyojegoswitchcase.domain.movies_usecase.GetMovieDetailCrewUseCase
 import com.eniskaner.eyojegoswitchcase.domain.util.Resource
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.state.MovieDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow

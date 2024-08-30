@@ -5,11 +5,11 @@ import com.eniskaner.eyojegoswitchcase.data.remote.movie_details.GetMovieDetails
 import com.eniskaner.eyojegoswitchcase.data.remote.movies_cast.CastingForMovieFromTMDB
 import com.eniskaner.eyojegoswitchcase.data.remote.movies_cast.MovieCast
 import com.eniskaner.eyojegoswitchcase.data.remote.movies_cast.MovieCrew
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetails.GetMovieDetailsCastUI
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetails.GetMovieDetailsCrewUI
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetails.MovieDetailsCastListUI
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetails.MovieDetailsCrewListUI
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetails.GetMovieDetailsFromIdUI
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails.GetMovieDetailsCastUI
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails.GetMovieDetailsCrewUI
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails.MovieDetailsCastListUI
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails.MovieDetailsCrewListUI
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails.GetMovieDetailsFromIdUI
 
 fun GetMovieDetailsFromId.toMovieDetailsUI() =
     GetMovieDetailsFromIdUI(

@@ -1,4 +1,4 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.model
 
 interface MovieDetailsDisplayItem {
 

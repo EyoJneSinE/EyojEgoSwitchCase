@@ -1,6 +1,7 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.state
 
 import com.eniskaner.eyojegoswitchcase.data.remote.movies_genre.GenresFromTMDB
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails
 
 
 data class MovieDetailState(

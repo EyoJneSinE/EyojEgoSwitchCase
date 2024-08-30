@@ -1,4 +1,4 @@
-package com.eniskaner.eyojegoswitchcase.presentation.switch1
+package com.eniskaner.eyojegoswitchcase.presentation.switch_details.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,13 +7,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsCastRecyclerviewBinding
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsCrewRecyclerviewBinding
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsRecyclerRowBinding
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST_LIST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW_LIST
-import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_DETAILS
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CAST_LIST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_CREW_LIST
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetailsDisplayItem.Companion.TYPE_MOVIE_DETAILS
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewholder.MovieDetailsCastRecyclerViewHolder
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewholder.MovieDetailsCrewRecyclerViewHolder
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewholder.MovieDetailsViewHolder
 
-class MovieDetailsAdapter() : ListAdapter<MovieDetails, RecyclerView.ViewHolder>(MovieDetailsDiffCallBack())  {
+class MovieDetailsAdapter() : ListAdapter<MovieDetails, RecyclerView.ViewHolder>(
+    MovieDetailsDiffCallBack()
+)  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
