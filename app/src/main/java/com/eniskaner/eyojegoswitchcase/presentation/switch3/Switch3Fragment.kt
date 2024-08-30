@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.eniskaner.eyojegoswitchcase.R
 import com.eniskaner.eyojegoswitchcase.databinding.FragmentSwitch3Binding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Switch3Fragment : Fragment() {
 
     private var _binding: FragmentSwitch3Binding? = null

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -52,6 +53,13 @@ class MainFragment : Fragment(), SwitchClickListener {
         binding?.recyclerViewSwitchList?.layoutManager = LinearLayoutManager(requireContext())
         val bottomNavigationView = (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         observeBottomNavItems(bottomNavigationView)
+        binding?.root?.rootView?.let { setFadeAnimation(it) }
+        binding?.recyclerViewSwitchList?.itemAnimator?.apply {
+            addDuration = 1000
+            removeDuration = 100
+            moveDuration = 1000
+            changeDuration = 100
+        }
         return binding?.root
     }
 
@@ -98,6 +106,12 @@ class MainFragment : Fragment(), SwitchClickListener {
             }
             true
         }
+    }
+
+    fun setFadeAnimation(view: View) {
+        val anim = AlphaAnimation(0.0f, 1.0f)
+        anim.duration = 1000
+        view.animation = anim
     }
 
     override fun onDestroyView() {

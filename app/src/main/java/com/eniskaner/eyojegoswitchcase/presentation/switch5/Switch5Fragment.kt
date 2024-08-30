@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.eniskaner.eyojegoswitchcase.databinding.FragmentSwitch5Binding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Switch5Fragment : Fragment() {
 
     private var _binding: FragmentSwitch5Binding? = null
