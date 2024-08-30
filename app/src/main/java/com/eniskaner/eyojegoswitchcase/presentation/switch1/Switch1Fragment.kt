@@ -38,7 +38,7 @@ class Switch1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSwitch1Binding.inflate(inflater, container, false)
-        binding?.movieDetailsRecyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        binding?.recyclerViewLotr?.layoutManager = LinearLayoutManager(requireContext())
         launchAndRepeatWithViewLifecycle {
             launch {
                 val movieId = 120
@@ -95,7 +95,7 @@ class Switch1Fragment : Fragment() {
     }
 
     private fun setTrendingRecyclerView() {
-        binding?.movieDetailsRecyclerView?.run {
+        binding?.recyclerViewLotr?.run {
             hasFixedSize()
             adapter = movieDetailsAdapter
         }
