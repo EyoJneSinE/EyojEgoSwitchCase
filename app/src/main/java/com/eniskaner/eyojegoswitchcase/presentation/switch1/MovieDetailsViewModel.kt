@@ -1,9 +1,7 @@
 package com.eniskaner.eyojegoswitchcase.presentation.switch1
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eniskaner.eyojegoswitchcase.data.remote.util.Constants.MOVIE_ID
 import com.eniskaner.eyojegoswitchcase.domain.movies_usecase.GetMovieDetailsUseCase
 import com.eniskaner.eyojegoswitchcase.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,24 +14,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
-    private val getMovieDetailsUseCase: GetMovieDetailsUseCase,
-    private val savedMovieDetailsStateHandle: SavedStateHandle,
+    private val getMovieDetailsUseCase: GetMovieDetailsUseCase
 ) : ViewModel() {
 
-    private val _stateMovieDetails = MutableStateFlow<MovieDetailState>(MovieDetailState())
+    private val _stateMovieDetails = MutableStateFlow(MovieDetailState())
     val stateMovieDetails : StateFlow<MovieDetailState> = _stateMovieDetails
 
     private var jobMovieDetails : Job? = null
 
-    init {
-        savedMovieDetailsStateHandle.get<String>(MOVIE_ID.toString())?.let {
-            getMovieDetails(it.toInt())
-        }
-    }
-
     fun getMovieDetails(imdbId: Int) {
         jobMovieDetails?.cancel()
-        jobMovieDetails = getMovieDetailsUseCase.executeGetMovieDetailsFromTMDB(imdbId).onEach {
+        jobMovieDetails = getMovieDetailsUseCase.invoke(movieId = imdbId).onEach {
             when (it) {
                 is Resource.Success -> {
                     _stateMovieDetails.value = MovieDetailState(movieDetails = it.data)
