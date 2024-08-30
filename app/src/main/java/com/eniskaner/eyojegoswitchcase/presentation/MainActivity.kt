@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         val fragmentTitles = mapOf(
             R.id.mainFragment to "main",
-            R.id.switch1Fragment to "a",
+            R.id.switch1Fragment to "LOTR",
             R.id.switch2Fragment to "b",
             R.id.switch3Fragment to "c",
             R.id.switch4Fragment to "d",

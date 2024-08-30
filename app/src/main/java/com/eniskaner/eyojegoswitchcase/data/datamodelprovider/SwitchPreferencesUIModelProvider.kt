@@ -10,7 +10,7 @@ class SwitchPreferencesUIModelProvider @Inject constructor() {
         val switchList = listOf(SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
-            switchName = "a",
+            switchName = "LOTR",
             switchType = SwitchType.OTHERS
         ),  SwitchPreferencesUIModel(
             isEnabled = false,

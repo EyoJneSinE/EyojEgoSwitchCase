@@ -9,6 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eniskaner.eyojegoswitchcase.databinding.FragmentSwitch1Binding
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.adapter.MovieDetailsAdapter
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.model.MovieDetails
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.state.MovieDetailState
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewmodel.MovieDetailsViewModel
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewmodel.MoviesCastViewModel
+import com.eniskaner.eyojegoswitchcase.presentation.switch_details.viewmodel.MoviesCrewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine

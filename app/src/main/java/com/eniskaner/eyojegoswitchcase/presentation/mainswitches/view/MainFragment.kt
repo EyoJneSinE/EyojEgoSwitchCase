@@ -90,7 +90,7 @@ class MainFragment : Fragment(), SwitchClickListener {
         items.forEachIndexed { index, item ->
             val itemId = when (item) {
                 "main" -> R.id.mainFragment
-                "a" -> R.id.switch1Fragment
+                "LOTR" -> R.id.switch1Fragment
                 "b" -> R.id.switch2Fragment
                 "c" -> R.id.switch3Fragment
                 "d" -> R.id.switch4Fragment
