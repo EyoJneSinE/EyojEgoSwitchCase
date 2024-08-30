@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         val fragmentTitles = mapOf(
             R.id.mainFragment to "main",
             R.id.switch1Fragment to "LOTR",
-            R.id.switch2Fragment to "b",
-            R.id.switch3Fragment to "c",
-            R.id.switch4Fragment to "d",
-            R.id.switch5Fragment to "e"
+            R.id.switch2Fragment to "HarryPotter",
+            R.id.switch3Fragment to "DeadPool",
+            R.id.switch4Fragment to "WolfStreet",
+            R.id.switch5Fragment to "YesMan"
         )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.toolbar.title = fragmentTitles[navController.currentDestination?.id]

@@ -91,10 +91,10 @@ class MainFragment : Fragment(), SwitchClickListener {
             val itemId = when (item) {
                 "main" -> R.id.mainFragment
                 "LOTR" -> R.id.switch1Fragment
-                "b" -> R.id.switch2Fragment
-                "c" -> R.id.switch3Fragment
-                "d" -> R.id.switch4Fragment
-                "e" -> R.id.switch5Fragment
+                "HarryPotter" -> R.id.switch2Fragment
+                "DeadPool" -> R.id.switch3Fragment
+                "WolfStreet" -> R.id.switch4Fragment
+                "YesMan" -> R.id.switch5Fragment
                 else -> View.generateViewId()
             }
             bottomNavigationView?.menu?.add(Menu.NONE, itemId, index, item)?.setIcon(R.drawable.ic_sentiment_satisfied_36dp)

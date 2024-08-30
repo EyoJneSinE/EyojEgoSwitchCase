@@ -15,22 +15,22 @@ class SwitchPreferencesUIModelProvider @Inject constructor() {
         ),  SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
-            switchName = "b",
+            switchName = "HarryPotter",
             switchType = SwitchType.OTHERS
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
-            switchName = "c",
+            switchName = "DeadPool",
             switchType = SwitchType.OTHERS
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
-            switchName = "d",
+            switchName = "WolfStreet",
             switchType = SwitchType.OTHERS
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
-            switchName = "e",
+            switchName = "YesMan",
             switchType = SwitchType.OTHERS
         ), SwitchPreferencesUIModel(
             isEnabled = true,
