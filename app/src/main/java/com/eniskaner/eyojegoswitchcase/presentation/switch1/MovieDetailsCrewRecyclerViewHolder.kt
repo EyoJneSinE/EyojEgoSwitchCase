@@ -8,12 +8,12 @@ class MovieDetailsCrewRecyclerViewHolder(
     private val binding: MovieDetailsCrewRecyclerviewBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bindMovieDetailsCrewRecyclerview(item: MovieDetails.MovieDetailsCrewList) {
+    fun bindMovieDetailsCrewRecyclerview(item: MovieDetails.MovieDetailsCrewListUI) {
         binding.movieDetailsCrewRV.layoutManager = LinearLayoutManager(binding.root.context, LinearLayoutManager.HORIZONTAL, false)
         init(item)
     }
 
-    fun init(item : MovieDetails.MovieDetailsCrewList) {
+    fun init(item : MovieDetails.MovieDetailsCrewListUI) {
         binding.movieDetailsCrewRV.adapter = MovieDetailsCrewAdapter().apply {
             submitList(item.movieCrewList)
         }

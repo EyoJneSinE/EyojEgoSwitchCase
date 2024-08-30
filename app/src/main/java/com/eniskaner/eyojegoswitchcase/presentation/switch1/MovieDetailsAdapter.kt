@@ -57,27 +57,27 @@ class MovieDetailsAdapter() : ListAdapter<MovieDetails, RecyclerView.ViewHolder>
         when (item.type()) {
             TYPE_MOVIE_DETAILS -> {
                 val movieDetailsHolder = holder as MovieDetailsViewHolder
-                movieDetailsHolder.bindMovieDetails(item as MovieDetails.GetMovieDetailsFromId)
+                movieDetailsHolder.bindMovieDetails(item as MovieDetails.GetMovieDetailsFromIdUI)
             }
 
             TYPE_MOVIE_CAST_LIST -> {
                 val movieDetailsCastHolder = holder as MovieDetailsCastRecyclerViewHolder
-                movieDetailsCastHolder.bindMovieDetailsCastRecyclerview(item as MovieDetails.MovieDetailsCastList)
+                movieDetailsCastHolder.bindMovieDetailsCastRecyclerview(item as MovieDetails.MovieDetailsCastListUI)
             }
 
             TYPE_MOVIE_CREW_LIST -> {
                 val movieDetailsCrewHolder = holder as MovieDetailsCrewRecyclerViewHolder
-                movieDetailsCrewHolder.bindMovieDetailsCrewRecyclerview(item as MovieDetails.MovieDetailsCrewList)
+                movieDetailsCrewHolder.bindMovieDetailsCrewRecyclerview(item as MovieDetails.MovieDetailsCrewListUI)
             }
 
             TYPE_MOVIE_CAST -> {
                 val movieDetailsCastHolder = holder as MovieDetailsCastRecyclerViewHolder
-                movieDetailsCastHolder.bindMovieDetailsCastRecyclerview(item as MovieDetails.MovieDetailsCastList)
+                movieDetailsCastHolder.bindMovieDetailsCastRecyclerview(item as MovieDetails.MovieDetailsCastListUI)
             }
 
             TYPE_MOVIE_CREW -> {
                 val movieDetailsCrewHolder = holder as MovieDetailsCrewRecyclerViewHolder
-                movieDetailsCrewHolder.bindMovieDetailsCrewRecyclerview(item as MovieDetails.MovieDetailsCrewList)
+                movieDetailsCrewHolder.bindMovieDetailsCrewRecyclerview(item as MovieDetails.MovieDetailsCrewListUI)
             }
         }
     }

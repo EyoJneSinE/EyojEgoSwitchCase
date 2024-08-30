@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsCastRecyclerRowBinding
 
-class MovieDetailsCastAdapter: ListAdapter<MovieDetails.GetMovieDetailsCast, MovieDetailsCastViewHolder>(MovieDetailsCastDiffCallBack()) {
+class MovieDetailsCastAdapter: ListAdapter<MovieDetails.GetMovieDetailsCastUI, MovieDetailsCastViewHolder>(MovieDetailsCastDiffCallBack()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -15,6 +15,6 @@ class MovieDetailsCastAdapter: ListAdapter<MovieDetails.GetMovieDetailsCast, Mov
     }
 
     override fun onBindViewHolder(holder: MovieDetailsCastViewHolder, position: Int) {
-        holder.bindMovieDetailsCast(getItem(position) as MovieDetails.GetMovieDetailsCast)
+        holder.bindMovieDetailsCast(getItem(position) as MovieDetails.GetMovieDetailsCastUI)
     }
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.eniskaner.eyojegoswitchcase.databinding.MovieDetailsCrewRecyclerRowBinding
 
-class MovieDetailsCrewAdapter: ListAdapter<MovieDetails.GetMovieDetailsCrew, MovieDetailsCrewViewHolder>(MovieDetailsCrewDiffCallBack()) {
+class MovieDetailsCrewAdapter: ListAdapter<MovieDetails.GetMovieDetailsCrewUI, MovieDetailsCrewViewHolder>(MovieDetailsCrewDiffCallBack()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -15,7 +15,7 @@ class MovieDetailsCrewAdapter: ListAdapter<MovieDetails.GetMovieDetailsCrew, Mov
     }
 
     override fun onBindViewHolder(holder: MovieDetailsCrewViewHolder, position: Int) {
-        holder.bindMovieDetailsCrew(getItem(position) as MovieDetails.GetMovieDetailsCrew)
+        holder.bindMovieDetailsCrew(getItem(position) as MovieDetails.GetMovieDetailsCrewUI)
     }
 
 }

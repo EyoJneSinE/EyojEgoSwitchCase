@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.DiffUtil
 class MovieDetailsDiffCallBack: DiffUtil.ItemCallback<MovieDetails>() {
     override fun areItemsTheSame(oldItem: MovieDetails, newItem: MovieDetails): Boolean {
         return when {
-            (oldItem is MovieDetails.GetMovieDetailsFromId && newItem is MovieDetails.GetMovieDetailsFromId) -> {
+            (oldItem is MovieDetails.GetMovieDetailsFromIdUI && newItem is MovieDetails.GetMovieDetailsFromIdUI) -> {
                 oldItem.movieDetailsGenre == newItem.movieDetailsGenre ||
                         oldItem.movieDetailsOverview == newItem.movieDetailsOverview ||
                         oldItem.movieDetailsTagline == newItem.movieDetailsTagline ||
@@ -14,12 +14,12 @@ class MovieDetailsDiffCallBack: DiffUtil.ItemCallback<MovieDetails>() {
                         oldItem.movieDetailsReleaseDate == newItem.movieDetailsReleaseDate ||
                         oldItem.movieDetailsVerticalPoster == newItem.movieDetailsVerticalPoster
             }
-            (oldItem is MovieDetails.GetMovieDetailsCast && newItem is MovieDetails.GetMovieDetailsCast) -> {
+            (oldItem is MovieDetails.GetMovieDetailsCastUI && newItem is MovieDetails.GetMovieDetailsCastUI) -> {
                 oldItem.movieDetailsCastName == newItem.movieDetailsCastName ||
                         oldItem.movieDetailsCastCharacterName == newItem.movieDetailsCastCharacterName ||
                         oldItem.movieDetailsCastPoster == newItem.movieDetailsCastPoster
             }
-            (oldItem is MovieDetails.GetMovieDetailsCrew && newItem is MovieDetails.GetMovieDetailsCrew) -> {
+            (oldItem is MovieDetails.GetMovieDetailsCrewUI && newItem is MovieDetails.GetMovieDetailsCrewUI) -> {
                 oldItem.movieDetailsCrewName == newItem.movieDetailsCrewName ||
                         oldItem.movieDetailsCrewJob == newItem.movieDetailsCrewJob ||
                         oldItem.movieDetailsCrewPoster == newItem.movieDetailsCrewPoster
@@ -33,32 +33,32 @@ class MovieDetailsDiffCallBack: DiffUtil.ItemCallback<MovieDetails>() {
     }
 }
 
-class MovieDetailsCastDiffCallBack : DiffUtil.ItemCallback<MovieDetails.GetMovieDetailsCast>() {
+class MovieDetailsCastDiffCallBack : DiffUtil.ItemCallback<MovieDetails.GetMovieDetailsCastUI>() {
     override fun areItemsTheSame(
-        oldItem: MovieDetails.GetMovieDetailsCast,
-        newItem: MovieDetails.GetMovieDetailsCast
+        oldItem: MovieDetails.GetMovieDetailsCastUI,
+        newItem: MovieDetails.GetMovieDetailsCastUI
     ): Boolean = oldItem.movieDetailsCastName == newItem.movieDetailsCastName ||
             oldItem.movieDetailsCastCharacterName == newItem.movieDetailsCastCharacterName ||
             oldItem.movieDetailsCastPoster == newItem.movieDetailsCastPoster
 
     override fun areContentsTheSame(
-        oldItem: MovieDetails.GetMovieDetailsCast,
-        newItem: MovieDetails.GetMovieDetailsCast
+        oldItem: MovieDetails.GetMovieDetailsCastUI,
+        newItem: MovieDetails.GetMovieDetailsCastUI
     ): Boolean = oldItem == newItem
 
 }
 
-class MovieDetailsCrewDiffCallBack : DiffUtil.ItemCallback<MovieDetails.GetMovieDetailsCrew>() {
+class MovieDetailsCrewDiffCallBack : DiffUtil.ItemCallback<MovieDetails.GetMovieDetailsCrewUI>() {
     override fun areItemsTheSame(
-        oldItem: MovieDetails.GetMovieDetailsCrew,
-        newItem: MovieDetails.GetMovieDetailsCrew
+        oldItem: MovieDetails.GetMovieDetailsCrewUI,
+        newItem: MovieDetails.GetMovieDetailsCrewUI
     ): Boolean = oldItem.movieDetailsCrewJob == newItem.movieDetailsCrewJob ||
             oldItem.movieDetailsCrewPoster == newItem.movieDetailsCrewPoster ||
             oldItem.movieDetailsCrewName == newItem.movieDetailsCrewName
 
     override fun areContentsTheSame(
-        oldItem: MovieDetails.GetMovieDetailsCrew,
-        newItem: MovieDetails.GetMovieDetailsCrew
+        oldItem: MovieDetails.GetMovieDetailsCrewUI,
+        newItem: MovieDetails.GetMovieDetailsCrewUI
     ): Boolean = oldItem == newItem
 
 }
