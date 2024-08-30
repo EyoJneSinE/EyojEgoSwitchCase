@@ -9,7 +9,7 @@ import com.eniskaner.eyojegoswitchcase.presentation.switch1.MovieDetailsDisplayI
 
 sealed class MovieDetails : MovieDetailsDisplayItem {
 
-    data class GetMovieDetailsFromId(
+    data class GetMovieDetailsFromIdUI(
         val movieDetailsHorizontalPoster : String,
         val movieDetailsVerticalPoster : String,
         val movieDetailsOriginalTitle : String,
@@ -23,15 +23,15 @@ sealed class MovieDetails : MovieDetailsDisplayItem {
         }
     }
 
-    data class MovieDetailsCastList(
-        var movieCastList: List<GetMovieDetailsCast> = emptyList()
+    data class MovieDetailsCastListUI(
+        var movieCastList: List<GetMovieDetailsCastUI>
     ) : MovieDetails(), MovieDetailsDisplayItem {
         override fun type(): Int {
             return TYPE_MOVIE_CAST_LIST
         }
     }
 
-    data class GetMovieDetailsCast(
+    data class GetMovieDetailsCastUI(
         val movieDetailsCastPoster : String,
         val movieDetailsCastName : String,
         val movieDetailsCastCharacterName : String
@@ -41,15 +41,15 @@ sealed class MovieDetails : MovieDetailsDisplayItem {
         }
     }
 
-    data class MovieDetailsCrewList(
-        var movieCrewList: List<GetMovieDetailsCrew> = emptyList()
+    data class MovieDetailsCrewListUI(
+        var movieCrewList: List<GetMovieDetailsCrewUI>
     ) : MovieDetails(), MovieDetailsDisplayItem {
         override fun type(): Int {
             return TYPE_MOVIE_CREW_LIST
         }
     }
 
-    data class GetMovieDetailsCrew(
+    data class GetMovieDetailsCrewUI(
         val movieDetailsCrewPoster : String,
         val movieDetailsCrewName : String,
         val movieDetailsCrewJob : String
