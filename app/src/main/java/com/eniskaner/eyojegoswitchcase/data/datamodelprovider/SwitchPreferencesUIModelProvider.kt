@@ -11,27 +11,27 @@ class SwitchPreferencesUIModelProvider @Inject constructor() {
             isEnabled = false,
             isChecked = false,
             switchName = "LOTR",
-            switchType = SwitchType.OTHERS
+            switchType = SwitchType.LOTR
         ),  SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
             switchName = "HarryPotter",
-            switchType = SwitchType.OTHERS
+            switchType = SwitchType.HARRY_POTTER
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
             switchName = "DeadPool",
-            switchType = SwitchType.OTHERS
+            switchType = SwitchType.DEADPOOL
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
             switchName = "WolfStreet",
-            switchType = SwitchType.OTHERS
+            switchType = SwitchType.WOLF_STREET
         ), SwitchPreferencesUIModel(
             isEnabled = false,
             isChecked = false,
             switchName = "YesMan",
-            switchType = SwitchType.OTHERS
+            switchType = SwitchType.YES_MAN
         ), SwitchPreferencesUIModel(
             isEnabled = true,
             isChecked = true,

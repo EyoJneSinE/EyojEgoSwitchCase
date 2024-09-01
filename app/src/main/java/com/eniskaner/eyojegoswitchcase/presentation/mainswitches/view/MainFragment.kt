@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.enableSavedStateHandles
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,7 @@ import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.util.launchAndR
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.viewmodel.MainFragmentViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -31,6 +34,7 @@ class MainFragment : Fragment(), SwitchClickListener {
     private val mainFragmentViewModel: MainFragmentViewModel by viewModels()
     private val mainUiAdapter: MainUiAdapter by lazy { MainUiAdapter(this@MainFragment) }
     private val navController: NavController by lazy { findNavController() }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,13 +57,6 @@ class MainFragment : Fragment(), SwitchClickListener {
         binding?.recyclerViewSwitchList?.layoutManager = LinearLayoutManager(requireContext())
         val bottomNavigationView = (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         observeBottomNavItems(bottomNavigationView)
-        binding?.root?.rootView?.let { setFadeAnimation(it) }
-        binding?.recyclerViewSwitchList?.itemAnimator?.apply {
-            addDuration = 1000
-            removeDuration = 100
-            moveDuration = 1000
-            changeDuration = 100
-        }
         return binding?.root
     }
 
@@ -68,6 +65,8 @@ class MainFragment : Fragment(), SwitchClickListener {
             launch {
                 mainFragmentViewModel.switchListUiState.collect {mainFragmentUiState ->
                     mainFragmentUiState?.let {
+                        mainFragmentViewModel.updateSwitchListState(it)
+                        mainFragmentViewModel.getState()
                         mainUiAdapter.submitList(mainFragmentUiState.switchListModel)
                     }
                 }
@@ -85,6 +84,13 @@ class MainFragment : Fragment(), SwitchClickListener {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val bottomNavigationView = (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        getData()
+        observeBottomNavItems(bottomNavigationView)
+    }
+
     private fun updateBottomNavigationView(items: List<String>, bottomNavigationView: BottomNavigationView?) {
         bottomNavigationView?.menu?.clear()
         items.forEachIndexed { index, item ->
@@ -100,18 +106,6 @@ class MainFragment : Fragment(), SwitchClickListener {
             bottomNavigationView?.menu?.add(Menu.NONE, itemId, index, item)?.setIcon(R.drawable.ic_sentiment_satisfied_36dp)
         }
         bottomNavigationView?.visibility = if (items.isEmpty()) View.INVISIBLE else View.VISIBLE
-        bottomNavigationView?.setOnItemSelectedListener { menuItem ->
-            if (menuItem.itemId != navController.currentDestination?.id) {
-                navController.navigate(menuItem.itemId)
-            }
-            true
-        }
-    }
-
-    fun setFadeAnimation(view: View) {
-        val anim = AlphaAnimation(0.0f, 1.0f)
-        anim.duration = 1000
-        view.animation = anim
     }
 
     override fun onDestroyView() {

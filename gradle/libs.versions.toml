@@ -30,6 +30,7 @@ compose-compiler = "1.5.13"
 gsonVersion = "2.11.0"
 retrofitVersion = "2.11.0"
 okHttpVersion = "4.12.0"
+kotlinPlugin = "1.8.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,7 @@ compose-lint-checks = { module = "com.slack.lint.compose:compose-lint-checks", v
 compose-ui-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+
 compose-ui-tooling-data = { module = "androidx.compose.ui:ui-tooling-data" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-ui-test-unit = { module = "androidx.compose.ui:ui-unit" }
@@ -95,3 +97,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlinPlugin" }
