@@ -9,10 +9,13 @@ import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.viewholder.Main
 
 class MainUiAdapter(
     private val switchClickListener: SwitchClickListener
-): ListAdapter<SwitchPreferencesUIModel, MainUiViewHolder>(MainSwitchesDiffCallBack()) {
+) : ListAdapter<SwitchPreferencesUIModel, MainUiViewHolder>(MainSwitchesDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainUiViewHolder {
         val binding = ItemSwitchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return  MainUiViewHolder(binding, switchClickListener)
+        return MainUiViewHolder(
+            binding = binding,
+            switchClickListener = switchClickListener
+        )
     }
 
     override fun onBindViewHolder(holder: MainUiViewHolder, position: Int) {

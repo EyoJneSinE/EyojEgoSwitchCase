@@ -65,6 +65,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 # hilt
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+#hilt-compiler
 hilt-android-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompose" }
 androidx-hilt-work = "androidx.hilt:hilt-work:1.2.0"
 androidx-hilt-navigation-compose = "androidx.hilt:hilt-navigation-compose:1.2.0"

@@ -7,19 +7,27 @@ import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.adapter.SwitchC
 import com.eniskaner.eyojegoswitchcase.presentation.mainswitches.model.SwitchPreferencesUIModel
 
 class MainUiViewHolder(
-    private val itemSwitchBinding: ItemSwitchBinding,
+    private val binding: ItemSwitchBinding,
     private val switchClickListener: SwitchClickListener
-): RecyclerView.ViewHolder(itemSwitchBinding.root) {
+): RecyclerView.ViewHolder(binding.root) {
 
     fun bindSwitchListToRecyclerView(item: SwitchPreferencesUIModel) {
-        itemSwitchBinding.switchButton.apply {
-            isEnabled = item.isEnabled
-            isChecked = item.isChecked
-            text = item.switchName
-            id = View.generateViewId()
-            setOnCheckedChangeListener { _, isChecked ->
-                switchClickListener.switchClickListener(item.copy(isChecked = isChecked))
-            }
+        bindSwitchButton(item)
+        setListener(item)
+    }
+
+    private fun bindSwitchButton(item: SwitchPreferencesUIModel) = with(binding.switchButton) {
+        isEnabled = item.isEnabled
+        isChecked = item.isChecked
+        text = item.switchName
+    }
+
+    private fun setListener(item: SwitchPreferencesUIModel) = with(binding.switchButton) {
+        setOnClickListener {
+            switchClickListener.switchClickListener(item, !item.isChecked, adapterPosition)
         }
+        /*setOnCheckedChangeListener { _, isChecked ->
+            switchClickListener.switchClickListener(item, isChecked, adapterPosition)
+        }*/
     }
 }
